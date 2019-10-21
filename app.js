@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
+const methodOverride = require('method-override')
 // const morgan = require("morgan");
 const app = express();
 const path = require("path")
@@ -12,6 +13,8 @@ mongoose.connection.on("error", (error) => console.log(error));
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
+
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
