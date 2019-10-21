@@ -1,8 +1,9 @@
 const express = require("express");
+const PageController = require("../controller/page_controller");
 const router = express.Router();
 const EventController = require("./../controllers/event_controller");
 
-router.get("/", (req, res) => res.send("Welcome"));
+router.get("/", PageController.index);
 
 router.get("/events", EventController.index);
 router.get("/events/:id", EventController.show);
