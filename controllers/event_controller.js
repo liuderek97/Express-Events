@@ -19,7 +19,7 @@ const render = (req, res) => {
 
 const edit = async (req, res) => {
     let { id } = req.params;
-    let event = EventModel.findById(id)
+    let event = await EventModel.findById(id)
         .catch(err => res.status(500).send(err));
     res.render("events/edit", {event});
 }
@@ -30,7 +30,7 @@ const update = async (req, res) => {
     await EventModel.findByIdAndUpdate(id, {title, eventDate, description})
         .catch(err => res.status(500).send(err));
 
-    res.redirect(`events/show/${id}`);
+    res.redirect(`/events/show/${id}`);
 }
 
 const create = async (req, res) => {
