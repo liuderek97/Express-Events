@@ -1,5 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
+const methodOverride = require('method-override')
 
 // const morgan = require("morgan");
 const session = require('express-session')
@@ -9,9 +11,10 @@ const passport = require("passport");
 const cookieParser = require('cookie-parser');
 
 const app = express();
-
+const path = require("path")
 
 mongoose.connect("mongodb://localhost/events", { useNewUrlParser: true });
+
 mongoose.Promise = global.Promise;
 
 app.use(session({
@@ -24,9 +27,14 @@ app.use(session({
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname,"public")));
 
 // app.use(morgan("combined"));
 require("./config/passport");

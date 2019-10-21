@@ -1,3 +1,4 @@
+
 const index = (req, res) => {
   res.render("page/index");
 }
