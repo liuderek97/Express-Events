@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const index = (req, res) => {
   res.render("page/index");
 }
@@ -11,4 +12,12 @@ const dashboard = (req, res) => {
 module.exports = {
   index,
   dashboard
+=======
+const index = (req,res) => {
+    res.render("page/index")
+}
+
+module.exports = {
+    index
+>>>>>>> c2736dbcb40e7a9e16bd0fd89f453514e1d36b2d
 }

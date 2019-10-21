@@ -16,6 +16,11 @@ global.HTTPError = class HTTPError extends Error {
     }
 };
 
+<<<<<<< HEAD
 app.listen(port, () => console.log(`Listening on port ${port}`));
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname,"public")));
+=======
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
+>>>>>>> c2736dbcb40e7a9e16bd0fd89f453514e1d36b2d

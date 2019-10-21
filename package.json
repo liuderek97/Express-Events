@@ -24,7 +24,11 @@
     "cookie-parser": "^1.4.4",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
+<<<<<<< HEAD
     "express-session": "^1.17.0",
+=======
+    "method-override": "^3.0.0",
+>>>>>>> c2736dbcb40e7a9e16bd0fd89f453514e1d36b2d
     "mongoose": "^5.7.5",
     "mongoose-bcrypt": "^1.6.0",
     "nodemon": "^1.19.4",
