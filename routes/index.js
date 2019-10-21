@@ -9,7 +9,7 @@ router.get("/events", EventController.index);
 router.get("/events/show/:id", EventController.show);
 
 router.get("/events/edit/:id", EventController.edit);
-router.put("/events/show/:id", EventController.update);
+router.put("/events/edit/:id", EventController.update);
 
 router.get("/events/new", EventController.render);
 router.post("/events/new", EventController.create);
