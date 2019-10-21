@@ -1,5 +1,5 @@
 // require("dotenv").config();
-require("./database/connect");
+// require("./database/connect");
 const app = require('./app');
 port = 3000;
 
