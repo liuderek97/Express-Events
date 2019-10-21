@@ -1,7 +1,13 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const mongoose = require("mongoose");
 // const morgan = require("morgan");
 const app = express();
+
+mongoose.connect("mongodb://localhost/events", { useNewUrlParser: true });
+mongoose.Promise = global.Promise;
+
+mongoose.connection.on("error", (error) => console.log(error));
 
 app.engine("handlebars", exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
