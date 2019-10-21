@@ -1,19 +1,18 @@
 <h1>Events</h1>
 
-{{#each events}}
+<div class="d-flex">
+    {{#each events}}
 
-    <div class="card-deck">
-        <div class="card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
+
+    <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <h4>Event time: {{this.eventDate}}</h4>
-      <p class="card-text">{{this.description}}</p>
+        <p class="card-text"><p class="card-text">{{this.description}}</p></p>
+        <p><a href="/events/show/{{this._id}}" class="btn btn-primary"`>Show event</a></p>
     </div>
-     <p><a href="/events/{{this._id}}"`>Show event</a></p>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-
-{{/each}}
+    
+    
+    {{/each}}
+</div>
