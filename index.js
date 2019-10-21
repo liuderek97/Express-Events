@@ -1,5 +1,6 @@
-// require("dotenv").config();
-// require("./database/connect");
+const express = require("express");
+const path = require("path")
+require("./connect");
 const app = require('./app');
 port = 3000;
 
@@ -17,3 +18,5 @@ global.HTTPError = class HTTPError extends Error {
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+app.use(express.static(__dirname));
+app.use(express.static(path.join(__dirname,"public")));

@@ -1,3 +1,5 @@
 <h1>{{event.title}}</h1>
 <p>Event time: {{event.eventDate}}</p>
 <p>{{event.description}}</p>
+<p><a href="/events/edit/{{event._id}}">Edit event</a></p>
+<p><a href="/events/show/{{event._id}}?_method=DELETE">Delete event</a></p>
