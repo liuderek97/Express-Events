@@ -6,7 +6,6 @@ const methodOverride = require('method-override')
 // const morgan = require("morgan");
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session);
-const mongoose = require("mongoose");
 const passport = require("passport");
 const cookieParser = require('cookie-parser');
 

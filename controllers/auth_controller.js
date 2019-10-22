@@ -6,9 +6,9 @@ const registerNew = (req, res) => {
 }
 
 const registerCreate = async (req, res) => {
-    let {email, password} = req.body;
+    let {email, password, lastName, firstName} = req.body;
     // let encrypetPassword = password.
-    let user = await User.create({email, password});
+    let user = await User.create({email, password, firstName, lastName});
    
 
     // attach the registered user to the session
