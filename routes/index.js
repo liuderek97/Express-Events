@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
+
 const PageController = require("../controllers/page_controller");
 const EventController = require("../controllers/event_controller");
+
 const AuthController = require("../controllers/auth_controller");
 const { authRedirect, authorize } = require("../middleware/auth_middleware");
 const passport = require('passport');

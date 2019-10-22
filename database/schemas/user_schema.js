@@ -11,6 +11,15 @@ const UserSchema = new Schema({
         required: true,
         bcrypt: true
     }
+    ,
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    }
 })
 
 UserSchema.plugin(require('mongoose-bcrypt'));
