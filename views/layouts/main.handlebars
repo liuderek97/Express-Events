@@ -15,11 +15,14 @@
         <a class="navbar-brand" href="/">Express Events</a>
         <form class="form-inline">
              <a class="nav-item nav-link" href="/">Home</a>
-             <a class="nav-item nav-link" href="../events/new">Start a new group</a>
+             <a class="nav-item nav-link" href="/events/new">Start a new group</a>
              <a class="nav-item nav-link" href="/login">Login/Sign</a>
              <a class="nav-item nav-link" href="/logout">Logout</a>
         </form>
     </nav>
+{{#if user.firstName}}
+    <p>Hello, {{user.firstName}}</p>
+{{/if}}
 <br>
     <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

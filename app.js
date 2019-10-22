@@ -40,11 +40,16 @@ require("./config/passport");
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+ });
+
 app.use(require("./routes"));
 
 // app.use(express.static("public"));s
 
-app.use(require("./middleware/error_handler_middlewar"));
+app.use(require("./middleware/error_handler_middleware"));
 // for staging purposes
 
 module.exports = app;

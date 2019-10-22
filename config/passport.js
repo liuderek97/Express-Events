@@ -47,6 +47,15 @@ passport.use(new LocalStrategy({
 },
     async (email, password, done) => {
         let user = await User.findOne({email})
+            .then(user => {
+                if(user){
+                    done(user)
+                }else{
+                    newUser(newUser)
+                        .save()
+                        .then(user => done(null,user))
+                }
+            })
             .catch(done)
         if (!user) { return done(null, false); }
         if (!user.verifyPassword(password)) { return done(null, false); }
