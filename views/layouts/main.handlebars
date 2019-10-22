@@ -17,7 +17,9 @@
              <a class="nav-item nav-link" href="/">Home</a>
              <a class="nav-item nav-link" href="../events/new">Start a new group</a>
              <a class="nav-item nav-link" href="/login">Login/Sign</a>
+             {{#if user}}
              <a class="nav-item nav-link" href="/logout">Logout</a>
+             {{/if}}
         </form>
     </nav>
 <br>

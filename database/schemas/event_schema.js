@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const userSchema = require('./user_schema');
 
 const EventSchema = new Schema({
     title: {
@@ -13,7 +14,10 @@ const EventSchema = new Schema({
     description: {
         type: String,
         required: true
-    }
-});
+    },
+    user: [userSchema]
+
+})
+
 
 module.exports = EventSchema;
