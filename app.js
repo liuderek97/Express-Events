@@ -51,7 +51,7 @@ app.use(require("./routes"));
 
 // app.use(express.static("public"));s
 
-app.use(require("./middleware/error_handler_middlewar"));
+app.use(require("./middleware/error_handler_middleware"));
 // for staging purposes
 
 

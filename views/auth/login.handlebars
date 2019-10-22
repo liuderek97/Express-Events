@@ -1,4 +1,3 @@
-
 {{#if error }}
     <p>{{error}}</p>
 {{/if}}
@@ -80,14 +79,11 @@
 }
 </style>
 
-
-
-
 <div class="col-md-4 col-md-offset-4" id="login">
 	<section id="inner-wrapper" class="login">
 		<article>
 			<form ction="/login" method="POST">
-                <label>LogIn</label>
+                <label>Login</label>
 				<div class="form-group">
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
@@ -100,13 +96,8 @@
 						<input name="password" type="password" class="form-control" placeholder="Password">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="input-group">
-					    <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-							<input name="password" type="password" class="form-control" placeholder="Confirm Password">
-						</div>
-					</div>
-					<button type="submit" value="Submit" class="btn btn-success btn-block">Submit</button>
-		</form>
+				<button type="submit" value="Submit" class="btn btn-success btn-block">Submit</button>
+				<a href="/register">Register</a>
+			</form>
 		</article>
 </section></div>
