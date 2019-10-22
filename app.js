@@ -1,7 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
 const mongoose = require("mongoose");
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 
 // const morgan = require("morgan");
 const session = require('express-session')
@@ -46,5 +46,6 @@ app.use(require("./routes"));
 
 app.use(require("./middleware/error_handler_middlewar"));
 // for staging purposes
+
 
 module.exports = app;

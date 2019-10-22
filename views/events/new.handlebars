@@ -9,7 +9,7 @@
 
 <h2>Create a new group</h2>
 
-<form action="/events/new" method="POST" >
+<form action="/events" method="POST" enctype="multipart/form-data" >
     <div class="con">
         <div class="form-group">
             <h4 for="exampleInputEmail1">Title</h4>
@@ -25,8 +25,7 @@
             <h4 for="exampleFormControlTextarea1">Description</h4>
             <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
-
-        
+        <input type="file" name="image"/>  
         <button type="submit" class="btn btn-outline-success">Submit</button>
     </div>
 </form>

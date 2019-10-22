@@ -1,7 +1,9 @@
 const EventModel = require("./../database/models/event_model");
 
+
 const index = async (req, res) => {
     let events = await EventModel.find();
+    // console.log("EVENTS", events)
     res.render("events/index", { events });
 }
 
@@ -35,7 +37,8 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
     let {title, eventDate, description} = req.body;
-    let event = await EventModel.create({title, eventDate, description})
+    let image = req.file.filename
+    let event = await EventModel.create({title, eventDate, description, image})
         .catch(err => res.status(500).send(err));
     res.redirect(`/events`);
 }
