@@ -26,7 +26,9 @@
     {{#each events}}
 
     <div class="card">
-        <img src="..." class="card-img-top" alt="...">
+        {{!-- {{#if this.image}} --}}
+        <img src="../../upload/{{this.image}}" class="card-img-top" alt="...">
+        {{!-- {{/if}} --}}
         <div class="card-body">
             <h3 class="card-title">{{this.title}}</h3>
             <h7>Event time: {{this.eventDate}}</h7>

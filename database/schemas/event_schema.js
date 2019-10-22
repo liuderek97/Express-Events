@@ -15,9 +15,11 @@ const EventSchema = new Schema({
         type: String,
         required: true
     },
-    user: [userSchema]
-
-})
-
+  
+    image:{
+        type: String,
+        required: true
+    }
+});
 
 module.exports = EventSchema;

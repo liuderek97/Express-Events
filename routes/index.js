@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const multer  = require('multer');
+const upload = multer({dest: "upload/"});
 
 const PageController = require("../controllers/page_controller");
 const EventController = require("../controllers/event_controller");
@@ -7,6 +9,8 @@ const EventController = require("../controllers/event_controller");
 const AuthController = require("../controllers/auth_controller");
 const { authRedirect, authorize } = require("../middleware/auth_middleware");
 const passport = require('passport');
+
+// router.get('/upload', (req, res) => res.sendFile(path.join(__dirname, 'public/upload')))
 
 router.get("/", EventController.index);
 
@@ -35,7 +39,7 @@ router.get("/events/edit/:id", EventController.edit);
 router.put("/events/edit/:id", EventController.update);
 
 router.get("/events/new", EventController.render);
-router.post("/events/new", EventController.create);
+router.post("/events",  upload.single('image'), EventController.create);
 
 router.delete("/events/show/:id", EventController.destroy)
 
