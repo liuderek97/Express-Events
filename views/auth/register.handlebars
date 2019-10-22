@@ -88,10 +88,16 @@
 		<article>
 			<form action="/register" method="POST">
 				<div class="form-group">
-                    <label>SighUp</label>
+                    <label>Sign Up</label>
 					<div class="input-group">
 						<span class="input-group-addon"><i class="fa fa-user"> </i></span>
-					    <input type="text" class="form-control" placeholder="Name">
+					    <input name="firstName" type="text" class="form-control" placeholder="First Name">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-envelope"> </i></span>
+						<input name="lastName" type="text" class="form-control" placeholder="Last Name">
 					</div>
 				</div>
 				<div class="form-group">
@@ -106,13 +112,7 @@
 						<input name="password" type="password" class="form-control" placeholder="Password">
 					</div>
 				</div>
-				<div class="form-group">
-					<div class="input-group">
-					    <span class="input-group-addon"><i class="fa fa-key"> </i></span>
-							<input name="password" type="password" class="form-control" placeholder="Confirm Password">
-						</div>
-					</div>
-					<button type="submit" value="Submit" class="btn btn-success btn-block">Submit</button>
+				<button type="submit" value="Submit" class="btn btn-success btn-block">Submit</button>
 		</form>
 		</article>
 </section></div>
