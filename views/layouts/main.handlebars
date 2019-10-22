@@ -7,25 +7,22 @@
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../public/css/style.css" type="text/css">
+    <title>Express Events</title>
 </head>
 <body>
-    <nav class="navbar navbar-light elemnt" style="background-color:  rgb(211,45,62)">
-        <a class="navbar-brand" style="color: rgb(244,225,97)" >Free Meet Up</a>
+    <nav class="navbar">
+        <a class="navbar-brand" href="/">Express Events</a>
         <form class="form-inline">
-            <a class="nav-item nav-link" style="color: rgb(244,225,97)"href="/events">Home</a>
-            <a class="nav-item nav-link"style="color: rgb(244,225,97)"  href="/events/new">Start a new group</a>
-            <a class="nav-item nav-link" style="color: rgb(244,225,97)"  href="/register">SignIn</a>
-            <a class="nav-item nav-link" style="color: rgb(244,225,97)"  href="/login">Login</a>
-            <a class="nav-item nav-link"style="color: rgb(244,225,97)"  href="#">Logout</a>
+             <a class="nav-item nav-link" href="/">Home</a>
+             <a class="nav-item nav-link" href="../events/new">Start a new group</a>
+             <a class="nav-item nav-link" href="/login">Login/Sign</a>
+             {{#if user}}
+             <a class="nav-item nav-link" href="/logout">Logout</a>
+             {{/if}}
+
         </form>
     </nav>
-<br>
-    <form class="form-inline">
-        {{!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> --}}
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
 <br>
    
     {{{body}}}
