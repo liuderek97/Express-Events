@@ -48,11 +48,16 @@ passport.use(new LocalStrategy({
 },
     async (email, password, done) => {
         let user = await User.findOne({email})
-         .catch(done)
-        //  if(user) {
-        //      done(user)
-        //  } 
-        console.log(user)
+            .then(user => {
+                if(user){
+                    done(user)
+                }else{
+                    newUser(newUser)
+                        .save()
+                        .then(user => done(null,user))
+                }
+            })
+            .catch(done)
         if (!user) { return done(null, false); }
         if (!user.verifyPassword(password)) { return done(null, false); }
         return done(null, user);
