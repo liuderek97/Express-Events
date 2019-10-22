@@ -15,7 +15,13 @@ router.post("/register", AuthController.registerCreate );
 
 router.get("/login", AuthController.loginNew);
 
-router.post("/login", passport.authenticate('local', { failureRedirect: '/login', session: false }), AuthController.loginCreate)
+// router.post("/login", passport.authenticate('local', { failureRedirect: '/login', session: false }), AuthController.loginCreate)
+
+router.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 
 router.get("/logout", AuthController.logout);
 router.get("/dashboard", passport.authenticate('jwt', {session: false}), PageController.dashboard);

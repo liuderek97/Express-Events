@@ -26,7 +26,7 @@ opts.secretOrKey = 'secretkey';
 //             if (!user) { return done(null, false); }
 //             if (!user.verifyPassword(password)) { return done(null, false); }
 //             return done(null, user);
-//         });
+//         }); 
 //     }
 // ));
 
@@ -38,6 +38,7 @@ passport.serializeUser(function (user, done) {
 // fetch user from the session
 passport.deserializeUser(function (id, done) {
     User.findById(id, function (err, user) {
+        console.log("DESERIALIZE", user);
         done(err, user);
     });
 });
