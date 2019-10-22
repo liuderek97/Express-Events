@@ -13,7 +13,11 @@ const EventSchema = new Schema({
     description: {
         type: String,
         required: true
-    }
+    },
+     user: {
+         type: Schema.Types.ObjectId,
+         ref: 'users'
+     }
 });
 
 module.exports = EventSchema;
