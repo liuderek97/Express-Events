@@ -1,9 +1,20 @@
-<h1>{{event.title}}</h1>
-<p>Event time: {{event.eventDate}}</p>
-<p>{{event.description}}</p>
-<p><a href="/events/edit/{{event._id}}">Edit event</a></p>
-<p><a href="/events/show/{{event._id}}?_method=DELETE">Delete event</a></p>
+<style>
+    .card{
+        margin-left: 60px;
+        margin-right: 60px;
+    }
+</style>
 
-
+<div class="card">
+    <h5 class="card-header">{{event.title}}</h5>
+    <div class="card-body">
+        <h5 class="card-title">Event time: {{event.eventDate}}</h5>
+        <p class="card-text">{{event.description}}</p>
+        <div class="d-flex justify-content-start">
+            <p class="btn btn-outline-success"><a href="/events/edit/{{event._id}}">Edit event</a></p>
+            <p class="btn btn-outline-success"><a href="/events/show/{{event._id}}?_method=DELETE">Delete event</a></p>
+        </div>
+  </div>
+</div>
 
 
