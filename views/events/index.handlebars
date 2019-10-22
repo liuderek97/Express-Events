@@ -1,15 +1,40 @@
+<style>
+    .card{
+        width:33%;
+        margin: 15px;
+        box-shadow: 10px 5px 5px rgba(211, 45, 62, 0.568);
+    }
+
+    .row{
+        margin-right: 30px;
+        margin-left: 30px;
+        justify-content: center
+    }
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    h1{
+        margin-left: 6em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+</style>
+
 <h1>Events</h1>
-<div class="d-flex justify-content-around">
+<div class="row">
     {{#each events}}
 
-
-    <div class="card" style="width: 18rem;">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <h4>Event time: {{this.eventDate}}</h4>
-        <p class="card-text"><p class="card-text">{{this.description}}</p></p>
-        <p><a href="/events/show/{{this._id}}" class="btn btn-primary"`>Show event</a></p>
+    <div class="card">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h3 class="card-title">{{this.title}}</h3>
+            <h7>Event time: {{this.eventDate}}</h7>
+            <p class="card-text"><p class="card-text">{{this.description}}</p></p>
+            <p><a href="/events/show/{{this._id}}" class="btn btn-primary"`>Show event</a></p>
+        </div>
     </div>
     {{/each}}
+    </div>
+    </div>
 </div>
