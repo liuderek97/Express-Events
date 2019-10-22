@@ -32,22 +32,15 @@ passport.deserializeUser(function (id, done) {
 passport.use(new LocalStrategy({
     usernameField: 'email'
 },
-    async (email, password, done) => {
-        let user = await User.findOne({email})
-            .then(user => {
-                if(user){
-                    done(user)
-                }else{
-                    newUser(newUser)
-                        .save()
-                        .then(user => done(null,user))
-                }
-            })
-            .catch(done)
-        if (!user) { return done(null, false); }
-        if (!user.verifyPassword(password)) { return done(null, false); }
-        return done(null, user);
-    }
+async (email, password, done) => {
+    let user = await User.findOne({email})
+     .catch(done)
+    
+    console.log(user)
+    if (!user) { return done(null, false); }
+    if (!user.verifyPassword(password)) { return done(null, false); }
+    return done(null, user);
+}
 ))
 // uses json web token based function
 passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
