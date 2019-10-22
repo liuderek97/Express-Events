@@ -1,3 +1,11 @@
+nav {
+   background: rgb(211,45,62);
+}
+
+nav a {
+   color: rgb(244,225,97);
+}
+
 .elemnt{
    font-family: Arial, Helvetica, sans-serif;
 }
