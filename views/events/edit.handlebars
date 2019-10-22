@@ -1,0 +1,19 @@
+<h1>EDIT</h1>
+
+<form action="/events/edit/{{event._id}}?_method=PUT" method="POST" >
+    <div>
+        <label>Title</label>
+        <input type="text" name="title" value="{{event.title}}">
+    </div>
+    <div>
+        <label>Event date</label>
+        <input type="datetime-local" name="eventDate" value="{{event.eventDate}}">
+    </div>
+    <div>
+        <label>Description</label>
+        <textarea name="description">{{event.description}}</textarea>
+    </div>
+    <div>
+        <input type="submit">
+    </div>
+</form>

@@ -17,6 +17,22 @@ const render = (req, res) => {
     res.render("events/new");
 }
 
+const edit = async (req, res) => {
+    let { id } = req.params;
+    let event = await EventModel.findById(id)
+        .catch(err => res.status(500).send(err));
+    res.render("events/edit", {event});
+}
+
+const update = async (req, res) => {
+    let { id } = req.params;
+    let { title, eventDate, description } = req.body;
+    await EventModel.findByIdAndUpdate(id, {title, eventDate, description})
+        .catch(err => res.status(500).send(err));
+
+    res.redirect(`/events/show/${id}`);
+}
+
 const create = async (req, res) => {
     let {title, eventDate, description} = req.body;
     let event = await EventModel.create({title, eventDate, description})
@@ -24,9 +40,20 @@ const create = async (req, res) => {
     res.redirect(`/events`);
 }
 
+const destroy = async (req, res) => {
+    let { id } = req.params;
+    await EventModel.findByIdAndDelete(id)
+        .catch(err => res.status(500).send(err));
+
+    res.redirect("/events")
+}
+
 module.exports = {
     index,
     show,
     render,
-    create
+    edit,
+    update,
+    create,
+    destroy
 }
