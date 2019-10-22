@@ -1,5 +1,10 @@
-.elemnt{
+nav {
+   background: rgb(211,45,62);
    font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a {
+   color: rgb(244,225,97);
 }
 
 .form-inline{
