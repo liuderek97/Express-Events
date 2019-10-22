@@ -7,6 +7,14 @@ nav a {
    color: rgb(244,225,97);
 }
 
+a {
+   text-decoration: none;
+}
+
+.container{
+   text-align: center;
+}
+
 .form-inline{
    justify-content: center;
 }
