@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path")
 require("./connect");
 const app = require('./app');
-port = 3000;
+port = 3001;
 
 global.HTTPError = class HTTPError extends Error {
     constructor(statusCode, message) {
