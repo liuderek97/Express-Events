@@ -37,6 +37,7 @@ const create = async (req, res) => {
     let {title, eventDate, description} = req.body;
     let event = await EventModel.create({title, eventDate, description})
         .catch(err => res.status(500).send(err));
+    
     res.redirect(`/events`);
 }
 

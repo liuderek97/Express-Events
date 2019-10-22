@@ -1,4 +1,5 @@
 const User = require("../database/models/user_model");
+const Event = require('../database/models/evemt_model')
 const jwt = require("jsonwebtoken");
 
 const registerNew = (req, res) => {
@@ -29,25 +30,7 @@ const registerCreate = async (req, res) => {
 const loginNew = (req, res) => {
     res.render("auth/login");
 }
-// custom authentication
-// const loginCreate = async (req, res) => {
-//     let {email, password} = req.body
-//     // fetch the user record from the database
-//     let user = await User.findOne({email})
-//     // if the user doesnot exist return an error
-//     if(!user) {
-//         return res.render("auth/login", {error: "Invalid user"})
-//     }
-//     // verify the password
-//     const validUser = await user.verifyPassword(password);
-//     if(!validUser) {
-//         return res.render("auth/login", {error: "Invalid password"});
-//     }
-//     // attach the user to the session
-//     req.session.user = user;
-//     res.redirect("/dashboard");
-//     // res.json(req.body);
-// }
+
 
 const loginCreate = async (req,res) => {
     const token = jwt.sign({sub: req.user._id}, 'secretkey');
