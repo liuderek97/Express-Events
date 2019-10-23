@@ -5,6 +5,11 @@
     }
 </style>
 
+<script>
+
+
+</script>
+
 <div class="card">
     <h5 class="card-header">{{event.title}}</h5>
     <div class="card-body">
@@ -16,11 +21,14 @@
                 <li>{{.}}</li>
             {{/each}}
         </p>
+
+        {{#ifCond event.user._id  user.id }}
         <div class="d-flex justify-content-start">
                         <p class="btn btn-outline-success"><a href="/events/attend/{{event._id}}">Attend event</a></p>
             <p class="btn btn-outline-success"><a href="/events/edit/{{event._id}}">Edit event</a></p>
             <p class="btn btn-outline-success"><a href="/events/show/{{event._id}}?_method=DELETE">Delete event</a></p>
         </div>
+        {{/ifCond}}
   </div>
 </div>
 
