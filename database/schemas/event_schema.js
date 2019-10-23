@@ -24,6 +24,11 @@ const EventSchema = new Schema({
     image:{
         type: String,
         required: false
+    },
+
+    attendees: {
+        type: Array,
+        required: false
     }
 });
 

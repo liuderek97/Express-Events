@@ -15,6 +15,16 @@
     <div class="card-body">
         <h5 class="card-title">Event time: {{event.eventDate}}</h5>
         <p class="card-text">{{event.description}}</p>
+        <p class="card-text">
+            Attendees:
+            {{#each event.attendees}}
+                <li>{{name}}</li>
+            {{/each}}
+        </p>
+        {{#if user}}
+            <p class="btn btn-outline-success"><a href="/events/unattend/{{event._id}}">Unattend event</a></p>
+            <p class="btn btn-outline-success"><a href="/events/attend/{{event._id}}">Attend event</a></p>
+        {{/if}}
         {{#ifCond event.user._id  user.id }}
         <div class="d-flex justify-content-start">
             <p class="btn btn-outline-success"><a href="/events/edit/{{event._id}}">Edit event</a></p>

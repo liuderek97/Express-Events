@@ -37,11 +37,11 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
     let {title, eventDate, description} = req.body;
-    user = req.user.id
+    let user = req.user.id
     if (typeof req.file === "undefined") {
         image = '../images/defaults/default-event-thumb.jpg'
     }else{
-        let image = req.file.filename
+        image = req.file.filename
     }
 
     
@@ -58,6 +58,22 @@ const destroy = async (req, res) => {
     res.redirect("/events")
 }
 
+const attend = async (req, res) => {
+    let { id } = req.params;
+    let event = await EventModel.findByIdAndUpdate(id, { $push: { "attendees": req.user}})
+        .catch(err => res.status(500).send(err));
+
+    res.redirect(`/events/show/${event._id}`);
+}
+
+const unattend = async (req, res) => {
+    let { id } = req.params;
+    let event = await EventModel.findByIdAndUpdate(id, { $pull: { "attendees": {_id: req.user._id}}})
+        .catch(err => res.status(500).send(err));
+
+    res.redirect(`/events/show/${event._id}`);
+}
+
 module.exports = {
     index,
     show,
@@ -65,5 +81,7 @@ module.exports = {
     edit,
     update,
     create,
-    destroy
+    destroy,
+    attend,
+    unattend
 }

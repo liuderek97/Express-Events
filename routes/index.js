@@ -44,4 +44,7 @@ router.post("/events",  upload.single('image'), EventController.create);
 
 router.delete("/events/show/:id", EventController.destroy)
 
+router.get("/events/attend/:id", EventController.attend);
+router.get("/events/unattend/:id", EventController.unattend);
+
 module.exports = router;
