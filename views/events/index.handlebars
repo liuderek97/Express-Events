@@ -20,7 +20,10 @@
         font-family: Arial, Helvetica, sans-serif;
     }
 </style>
-
+{{#unless events}}
+<h1>There are no events posted right now </h1>
+{{/unless}}
+{{#if events}}
 <h1>Events</h1>
 <div class="row">
     {{#each events}}
@@ -37,6 +40,6 @@
         </div>
     </div>
     {{/each}}
-    </div>
-    </div>
 </div>
+{{/if}}
+   
