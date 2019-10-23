@@ -20,8 +20,8 @@
             {{#each event.attendees}}
                 <li>{{.}}</li>
             {{/each}}
-            <p class="btn btn-outline-success"><a href="/events/attend/{{event._id}}">Attend event</a></p>
         </p>
+        <p class="btn btn-outline-success"><a href="/events/attend/{{event._id}}">Attend event</a></p>
         {{#ifCond event.user._id  user.id }}
         <div class="d-flex justify-content-start">
             <p class="btn btn-outline-success"><a href="/events/edit/{{event._id}}">Edit event</a></p>
