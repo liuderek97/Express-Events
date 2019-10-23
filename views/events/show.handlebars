@@ -10,7 +10,14 @@
     <div class="card-body">
         <h5 class="card-title">Event time: {{event.eventDate}}</h5>
         <p class="card-text">{{event.description}}</p>
+        <p class="card-text">
+            Attendees:
+            {{#each event.attendees}}
+                <li>{{.}}</li>
+            {{/each}}
+        </p>
         <div class="d-flex justify-content-start">
+                        <p class="btn btn-outline-success"><a href="/events/attend/{{event._id}}">Attend event</a></p>
             <p class="btn btn-outline-success"><a href="/events/edit/{{event._id}}">Edit event</a></p>
             <p class="btn btn-outline-success"><a href="/events/show/{{event._id}}?_method=DELETE">Delete event</a></p>
         </div>

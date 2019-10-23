@@ -18,13 +18,18 @@ const EventSchema = new Schema({
 
     user:{
         type: Schema.Types.ObjectId,
-        ref: "users"
+        ref: "User"
     },
   
     image:{
         type: String,
         required: false
-    }
+    },
+
+    attendees: {
+            type: Array,
+            required: false
+        }
 });
 
 module.exports = EventSchema;
