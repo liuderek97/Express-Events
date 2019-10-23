@@ -1,5 +1,6 @@
 const express = require("express");
 const exphbs = require("express-handlebars");
+const Handlebars = require('handlebars')
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 
@@ -46,6 +47,9 @@ app.use((req, res, next) => {
   next();
 });
 
+
+
+
 app.use(require("./routes"));
 
 
@@ -54,5 +58,19 @@ app.use(require("./routes"));
 app.use(require("./middleware/error_handler_middleware"));
 // for staging purposes
 
+var hbsHelpers = exphbs.create({
+    helpers: require("./helpers/handlebars"),
+    defaultLayout: 'layout',
+    extname: '.hbs'
+});
+
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 == v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
+app.engine('.hbs', hbsHelpers.engine);
 
 module.exports = app;
