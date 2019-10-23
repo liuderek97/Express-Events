@@ -37,8 +37,15 @@ const update = async (req, res) => {
 
 const create = async (req, res) => {
     let {title, eventDate, description} = req.body;
-    let image = req.file.filename
-    let event = await EventModel.create({title, eventDate, description, image})
+    user = req.user.id
+    if (typeof req.file === "undefined") {
+        image = '../images/defaults/default-event-thumb.jpg'
+    }else{
+        let image = req.file.filename
+    }
+
+    
+    let event = await EventModel.create({title, eventDate, description, image, user})
         .catch(err => res.status(500).send(err));
     res.redirect(`/events`);
 }

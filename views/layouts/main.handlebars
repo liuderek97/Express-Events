@@ -15,8 +15,10 @@
         <a class="navbar-brand" href="/">Express Events</a>
         <form class="form-inline">
              <a class="nav-item nav-link" href="/">Home</a>
-             <a class="nav-item nav-link" href="/events/new">Start a new group</a>
+             <a class="nav-item nav-link" href="/events">All events</a>
              {{#if user}}
+                <a class="nav-item nav-link" href="/events/new">Start a new group</a>
+                <a class="nav-item nav-link" href="/dashboard">My Dashboard</a>
                 <a class="nav-item nav-link" href="/logout">Logout</a>
              {{else}}
                 <a class="nav-item nav-link" href="/login">Login/Sign</a>
@@ -24,9 +26,6 @@
 
         </form>
     </nav>
-{{#if user.name}}
-    <p>Hello, {{user.name}}</p>
-{{/if}}
 
    
     {{{body}}}
