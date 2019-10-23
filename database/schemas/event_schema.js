@@ -27,9 +27,9 @@ const EventSchema = new Schema({
     },
 
     attendees: {
-            type: Array,
-            required: false
-        }
+        type: Array,
+        required: false
+    }
 });
 
 module.exports = EventSchema;
