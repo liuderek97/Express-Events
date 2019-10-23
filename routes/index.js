@@ -14,7 +14,7 @@ const passport = require('passport');
 
 // router.get('/upload', (req, res) => res.sendFile(path.join(__dirname, 'public/upload')))
 
-router.get("/", EventController.index);
+router.get("/", PageController.index);
 
 router.get("/register", authRedirect, AuthController.registerNew);
 router.post("/register", AuthController.registerCreate );
