@@ -59,9 +59,16 @@ const destroy = async (req, res) => {
 }
 
 const attend = async (req, res) => {
-    let { name } = req.user;
     let { id } = req.params;
-    let event = await EventModel.findByIdAndUpdate(id, { $push: { "attendees": name}})
+    let event = await EventModel.findByIdAndUpdate(id, { $push: { "attendees": req.user}})
+        .catch(err => res.status(500).send(err));
+
+    res.redirect(`/events/show/${event._id}`);
+}
+
+const unattend = async (req, res) => {
+    let { id } = req.params;
+    let event = await EventModel.findByIdAndUpdate(id, { $pull: { "attendees": {_id: req.user._id}}})
         .catch(err => res.status(500).send(err));
 
     res.redirect(`/events/show/${event._id}`);
@@ -75,5 +82,6 @@ module.exports = {
     update,
     create,
     destroy,
-    attend
+    attend,
+    unattend
 }
