@@ -12,23 +12,9 @@ opts.jwtFromRequest = (req) => {
     }
     return token
 }
-// opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+
 opts.secretOrKey = 'secretkey';
 
-// const passport = require('passport');
-// const LocalStrategy = require('passport-local').Strategy;
-
-// bring in the passport local strategy middleware
-// passport.use(new LocalStrategy(
-//     function (username, password, done) {
-//         User.findOne({ username: username }, function (err, user) {
-//             if (err) { return done(err); }
-//             if (!user) { return done(null, false); }
-//             if (!user.verifyPassword(password)) { return done(null, false); }
-//             return done(null, user);
-//         }); 
-//     }
-// ));
 
 // attach the user to the session
 passport.serializeUser(function (user, done) {
@@ -46,17 +32,15 @@ passport.deserializeUser(function (id, done) {
 passport.use(new LocalStrategy({
     usernameField: 'email'
 },
-    async (email, password, done) => {
-        let user = await User.findOne({email})
-         .catch(done)
-        //  if(user) {
-        //      done(user)
-        //  } 
-        console.log(user)
-        if (!user) { return done(null, false); }
-        if (!user.verifyPassword(password)) { return done(null, false); }
-        return done(null, user);
-    }
+async (email, password, done) => {
+    let user = await User.findOne({email})
+     .catch(done)
+    
+    console.log(user)
+    if (!user) { return done(null, false); }
+    if (!user.verifyPassword(password)) { return done(null, false); }
+    return done(null, user);
+}
 ))
 // uses json web token based function
 passport.use(new JwtStrategy(opts, function (jwt_payload, done) {
